@@ -106,7 +106,8 @@ const About = () => {
                     </div>
                     <div className="w-32 h-1.5  mx-auto rounded-full"></div>
                     <p className="text-[#5B4B5C] max-w-3xl mx-auto text-lg mt-6 font-sans leading-relaxed">
-                        A student-led carnival of cloud computing, bringing together the brightest minds from across the National Capital Region.
+                        AWS Cloud Club Sharda University is a student-run AWS community helping peers learn cloud, DevOps, AI/ML and security through hands-on events. 
+                        Our Student Community Day brings that energy into one day focused on inclusive, career-ready cloud learning.
                     </p>
                 </motion.div>
 
@@ -121,26 +122,39 @@ const About = () => {
                         <div className="relative group">
                             <div className="absolute -left-4 top-0 w-1 h-full  rounded-full"></div>
                             <p className="pl-8 group-hover:translate-x-2 transition-transform">
-                                <strong className="text-[#4C1D95] text-xl">AWS Student Community Day Delhi NCR</strong> is a student-led carnival of cloud computing, bringing together brightest minds from across National Capital Region.
+                                <strong className="text-[#4C1D95] text-xl">AWS Cloud Club @ Sharda University</strong> is a student-led technical community that makes cloud education more accessible, inclusive and hands-on.
                             </p>
                         </div>
                         <div className="  p-6 rounded-2xl border border-[#7C3AED]/20 hover-lift">
                             <div className="flex items-center gap-3 mb-3">
                                 <Zap className="w-5 h-5 text-[#7C3AED]" />
-                                <span className="font-semibold text-[#4C1D95]">Student-First Approach</span>
+                                <span className="font-semibold text-[#4C1D95]">AWS Cloud Club Sharda University</span>
                             </div>
                             <p>
-                                Organized by students for students, this is not just a conference—it's a celebration. Whether you are a fresher asking "Kya haal hai cloud ka?" or an expert deploying serverless architectures, there is a seat for you here.
+                                We run workshops, hands-on labs, bootcamps, hackathons and real projects so students can practice AWS, cloud architecture, DevOps, AI/ML and security beyond classroom theory.
                             </p>
                         </div>
                         <div className="  p-6 rounded-2xl border border-[#7C3AED]/20 hover-lift">
                             <div className="flex items-center gap-3 mb-3">
                                 <Sparkles className="w-5 h-5 text-[#7C3AED]" />
-                                <span className="font-semibold text-[#4C1D95]">What to Expect</span>
+                                <span className="font-semibold text-[#4C1D95]">AWS Cloud Club Student Community Day</span>
                             </div>
                             <p>
-                                Deep-dive technical sessions, hands-on workshops, career guidance from industry maestros, and of course, endless cups of <span className="text-[#7C3AED] font-bold">Chai</span> & networking.
+                                A one-day, student-led cloud learning event with keynotes, technical workshops, hands-on labs, mentorship and networking—open to both club members and non-members, built to bridge the cloud skills gap with a “Diversity is Cloud Accessibility” mindset.
                             </p>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-3 text-sm mt-2">
+                            <span className="text-[#5B4B5C] font-sans">
+                                Stay connected with upcoming meetups and activities.
+                            </span>
+                            <a
+                                href="https://www.meetup.com/aws-cloud-club-at-sharda-university/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center px-4 py-2 rounded-full bg-[#7C3AED] text-white font-semibold text-xs shadow-sm hover:bg-[#5B21B6] transition-colors"
+                            >
+                                Join us on Meetup
+                            </a>
                         </div>
                     </motion.div>
 
