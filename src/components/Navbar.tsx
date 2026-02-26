@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Ticket } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,6 +34,23 @@ const Navbar = () => {
         { name: 'Team', href: '#team' },
     ];
 
+    const handleSectionNav = (href: string) => {
+        const isHash = href.startsWith('#');
+        if (!isHash) return;
+
+        const targetId = href.slice(1);
+
+        if (location.pathname !== '/') {
+            navigate('/', { state: { scrollTo: targetId } });
+            return;
+        }
+
+        const el = document.getElementById(targetId);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
         <nav className={`fixed w-full z-50 bg-[#F3EDEE] border-b border-[#7C3AED]/20 shadow-sm transition-all duration-300 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,6 +76,10 @@ const Navbar = () => {
                                 <a
                                     key={link.name}
                                     href={link.href}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleSectionNav(link.href);
+                                    }}
                                     className="relative text-[#5B4B5C] hover:text-[#4C1D95] px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group overflow-hidden hover:bg-[#7C3AED]/10"
                                 >
                                     <span className="relative z-10">{link.name}</span>
@@ -94,7 +118,11 @@ const Navbar = () => {
                                 key={link.name}
                                 href={link.href}
                                 className="text-[#5B4B5C] hover:text-[#7C3AED] hover:bg-[#7C3AED]/10 block px-4 py-3 rounded-lg text-base font-medium font-display tracking-wide transition-all duration-300"
-                                onClick={() => setIsOpen(false)}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleSectionNav(link.href);
+                                    setIsOpen(false);
+                                }}
                             >
                                 {link.name}
                             </a>
