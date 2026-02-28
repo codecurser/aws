@@ -344,7 +344,7 @@ const Timeline = () => {
                   </div>
 
                   <div className="space-y-3 max-h-[380px] overflow-y-auto pr-1">
-                    {workshopTimeline.map((item, index) => (
+                    {workshopTimeline.map((item) => (
                       <div
                         key={item.label}
                         className={`rounded-2xl border bg-white/80 px-4 py-3 sm:px-4 sm:py-3.5 flex flex-col gap-1 hover-lift ${

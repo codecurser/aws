@@ -1,0 +1,5 @@
+src/App.tsx(2,31): error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+src/components/Navbar.tsx(3,42): error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+src/components/TimelinePreview.tsx(3,22): error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+src/main.tsx(3,31): error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+src/pages/Home.tsx(2,29): error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
