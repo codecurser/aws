@@ -16,7 +16,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, tier, index, scrollR
             border: 'border-gray-200/50',
             shadow: 'shadow-[#7C3AED]/10',
             icon: Crown,
-            iconColor: 'text-[#5B4B5C]',
+            iconColor: 'text-[#2D1B36]',
             hoverScale: 1.06
         },
         gold: {
@@ -75,7 +75,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, tier, index, scrollR
                 <div className="relative z-10 h-full flex flex-col justify-between">
                     <div>
                         <div className="flex items-center mb-3">
-                            <Building2 className="w-4 h-4 text-[#5B4B5C] mr-2" />
+                            <Building2 className="w-4 h-4 text-[#2D1B36] mr-2" />
                             <div className="h-px  flex-1"></div>
                         </div>
                         
@@ -83,7 +83,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, tier, index, scrollR
                             {sponsor}
                         </h3>
                         
-                        <p className="text-xs text-[#5B4B5C] font-sans capitalize">
+                        <p className="text-xs text-[#2D1B36] font-sans capitalize">
                             {tier} Partner
                         </p>
                     </div>
@@ -95,7 +95,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, tier, index, scrollR
                             <div className="w-1.5 h-1.5 rounded-full delay-75"></div>
                             <div className="w-1.5 h-1.5 rounded-full delay-150"></div>
                         </div>
-                        <span className="text-xs text-[#5B4B5C] font-sans">Partner</span>
+                        <span className="text-xs text-[#2D1B36] font-sans">Partner</span>
                     </div>
                 </div>
 
@@ -142,13 +142,13 @@ const SponsorTier: React.FC<SponsorTierProps> = ({ title, tier, sponsors, descri
                 className="text-center mb-12"
             >
                 <h3 className={`text-2xl md:text-3xl font-display font-bold mb-3 ${
-                    tier === 'platinum' ? 'text-[#5B4B5C]' :
+                    tier === 'platinum' ? 'text-[#2D1B36]' :
                     tier === 'gold' ? 'text-[#7C3AED]' :
-                    'text-[#5B4B5C]'
+                    'text-[#2D1B36]'
                 } uppercase tracking-widest`}>
                     {title}
                 </h3>
-                <p className="text-[#5B4B5C] max-w-2xl mx-auto font-sans text-sm">
+                <p className="text-[#2D1B36] max-w-2xl mx-auto font-sans text-sm">
                     {description}
                 </p>
             </motion.div>
@@ -194,7 +194,7 @@ const Sponsors = () => {
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-[#4C1D95] mb-4">
                         Our <span className=" text-[#7C3AED]">Sponsors</span>
                     </h2>
-                    <p className="text-[#5B4B5C] max-w-3xl mx-auto text-base md:text-lg font-sans leading-relaxed">
+                    <p className="text-[#2D1B36] max-w-3xl mx-auto text-base md:text-lg font-sans leading-relaxed">
                         We're proud to partner with industry leaders and innovators who share our vision 
                         for advancing cloud computing and fostering community growth.
                     </p>
@@ -232,7 +232,7 @@ const Sponsors = () => {
                         <h3 className="text-2xl font-bold text-[#4C1D95] mb-4 font-display">
                             Become a Partner
                         </h3>
-                        <p className="text-[#5B4B5C] mb-6 font-sans text-base max-w-2xl mx-auto">
+                        <p className="text-[#2D1B36] mb-6 font-sans text-base max-w-2xl mx-auto">
                             Join us in creating an unforgettable experience for the cloud community. 
                             Your support helps empower the next generation of cloud professionals.
                         </p>

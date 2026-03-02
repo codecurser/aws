@@ -14,7 +14,7 @@ const Ambassadors = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-display font-bold text-[#4C1D95] mb-6">Top Campus <span className="text-[#7C3AED]">Ambassadors</span></h2>
-                    <p className="text-[#5B4B5C] font-sans text-lg">Celebrating the leaders driving cloud adoption on campus.</p>
+                    <p className="text-[#2D1B36] font-sans text-lg">Celebrating the leaders driving cloud adoption on campus.</p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">

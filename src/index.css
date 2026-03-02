@@ -4,7 +4,7 @@
 
 @theme {
   --color-aws-orange: #7C3AED;
-  --color-aws-squid: #F3EDEE;
+  --color-aws-squid: #DFA8F0;
 
   /* Enhanced Heritage Palette */
   --color-india-saffron: #7C3AED;
@@ -14,7 +14,7 @@
   /* Red Fort Clay */
   --color-rani-pink: #7C3AED;
   --color-marigold: #5B21B6;
-  --color-yamuna-blue: #F3EDEE;
+  --color-yamuna-blue: #DFA8F0;
   
   /* Enhanced Sunset Colors */
   --color-sunset-purple: #7C3AED;
@@ -38,7 +38,7 @@
   }
   
   body {
-    @apply bg-[#F3EDEE] text-[#5B4B5C] font-sans antialiased;
+    @apply bg-[#DFA8F0] text-[#2D1B36] font-sans antialiased;
     overflow-x: hidden;
   }
 

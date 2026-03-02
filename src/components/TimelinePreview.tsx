@@ -25,7 +25,7 @@ const TimelinePreview = () => {
               <p className="text-xs sm:text-sm font-sans text-[#7C3AED] font-semibold tracking-wide uppercase">
                 Event Timeline
               </p>
-              <p className="text-sm sm:text-base font-sans text-[#5B4B5C]">
+              <p className="text-sm sm:text-base font-sans text-[#2D1B36]">
                 Full-day flow from <span className="font-semibold text-[#4C1D95]">9:00 AM</span> to{' '}
                 <span className="font-semibold text-[#4C1D95]">5:00 PM</span>.
               </p>

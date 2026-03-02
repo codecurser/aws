@@ -37,10 +37,10 @@ const Countdown = () => {
     ];
 
     return (
-        <div className="flex gap-4 sm:gap-6 p-4 sm:p-6 rounded-3xl border border-[#7C3AED]/30 bg-[#F3EDEE]/40 backdrop-blur-md w-fit">
+        <div className="flex gap-4 sm:gap-6 p-4 sm:p-6 rounded-3xl border border-[#7C3AED]/30 bg-[#DFA8F0]/40 backdrop-blur-md w-fit">
             {timeBlocks.map((block, idx) => (
                 <div key={idx} className="flex flex-col items-center">
-                    <span className="text-[#5B4B5C] font-sans text-sm sm:text-base font-bold mb-2 sm:mb-3">{block.label}</span>
+                    <span className="text-[#2D1B36] font-sans text-sm sm:text-base font-bold mb-2 sm:mb-3">{block.label}</span>
                     <div className="bg-white text-[#4C1D95] font-sans font-bold text-3xl sm:text-5xl w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center rounded-2xl shadow-sm border border-[#7C3AED]/10">
                         {block.value.toString().padStart(2, '0')}
                     </div>
@@ -52,7 +52,7 @@ const Countdown = () => {
 
 const Hero = () => {
     return (
-        <div className="relative min-h-screen flex items-center overflow-hidden pt-16 group bg-[#F3EDEE]">
+        <div className="relative min-h-screen flex items-center overflow-hidden pt-16 group bg-[#DFA8F0]">
             {/* User Provided Background Image */}
             <div className="absolute inset-0 z-0">
                 <div 
@@ -62,7 +62,7 @@ const Hero = () => {
                     }}
                 ></div>
                 {/* Smooth fade-out at bottom into the beige color */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#F3EDEE] via-[#F3EDEE]/30 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#DFA8F0] via-[#DFA8F0]/30 to-transparent"></div>
             </div>
 
             <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full z-10 py-12 flex flex-col items-start justify-center min-h-[80vh]">

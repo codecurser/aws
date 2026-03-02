@@ -52,7 +52,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`fixed w-full z-50 bg-[#F3EDEE] border-b border-[#7C3AED]/20 shadow-sm transition-all duration-300 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <nav className={`fixed w-full z-50 bg-[#DFA8F0] border-b border-[#7C3AED]/20 shadow-sm transition-all duration-300 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <div className="flex-shrink-0 flex items-center group cursor-pointer">
@@ -66,7 +66,7 @@ const Navbar = () => {
                             <span className="text-2xl font-display font-bold text-[#4C1D95] leading-none">
                                 AWS SCD
                             </span>
-                            <span className="text-[#5B4B5C] text-[10px] tracking-[0.2em] uppercase mt-1 group-hover:text-[#7C3AED] transition-colors">Delhi NCR</span>
+                            <span className="text-[#2D1B36] text-[10px] tracking-[0.2em] uppercase mt-1 group-hover:text-[#7C3AED] transition-colors">Delhi NCR</span>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@ const Navbar = () => {
                                         e.preventDefault();
                                         handleSectionNav(link.href);
                                     }}
-                                    className="relative text-[#5B4B5C] hover:text-[#4C1D95] px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group overflow-hidden hover:bg-[#7C3AED]/10"
+                                    className="relative text-[#2D1B36] hover:text-[#4C1D95] px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group overflow-hidden hover:bg-[#7C3AED]/10"
                                 >
                                     <span className="relative z-10">{link.name}</span>
                                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#7C3AED] transition-all duration-300 group-hover:w-full"></span>
@@ -111,13 +111,13 @@ const Navbar = () => {
 
             {/* Mobile menu */}
             {isOpen && (
-                <div className="md:hidden bg-[#F3EDEE]  border-b border-sunset-purple/30">
+                <div className="md:hidden bg-[#DFA8F0]  border-b border-sunset-purple/30">
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="text-[#5B4B5C] hover:text-[#7C3AED] hover:bg-[#7C3AED]/10 block px-4 py-3 rounded-lg text-base font-medium font-display tracking-wide transition-all duration-300"
+                                className="text-[#2D1B36] hover:text-[#7C3AED] hover:bg-[#7C3AED]/10 block px-4 py-3 rounded-lg text-base font-medium font-display tracking-wide transition-all duration-300"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleSectionNav(link.href);

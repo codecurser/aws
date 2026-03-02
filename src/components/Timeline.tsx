@@ -228,7 +228,7 @@ const Timeline = () => {
             </h2>
             <Sparkles className="w-6 h-6 text-[#7C3AED]" />
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm sm:text-base text-[#5B4B5C] font-sans">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm sm:text-base text-[#2D1B36] font-sans">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 border border-[#7C3AED]/30 shadow-sm">
               <CalendarDays className="w-4 h-4 text-[#7C3AED]" />
               March 27, 2026
@@ -291,7 +291,7 @@ const Timeline = () => {
                       <h3 className="font-display text-base sm:text-lg font-semibold text-[#4C1D95]">
                         {item.label}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#5B4B5C] font-sans leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[#2D1B36] font-sans leading-relaxed">
                         {item.description}
                       </p>
                       {item.parallelTag && (
@@ -316,8 +316,8 @@ const Timeline = () => {
             className="relative"
           >
             <div className="relative rounded-3xl bg-gradient-to-br from-sunset-purple/90 via-sunset-pink/90 to-sunset-orange/90 text-white p-[1px] shadow-[0_20px_60px_rgba(124,58,237,0.5)]">
-              <div className="rounded-3xl bg-[#F3EDEE]">
-                <div className="rounded-3xl bg-gradient-to-b from-[#FDF8FF]/95 via-[#F3EDEE] to-[#F9EEF8] px-5 py-6 sm:px-7 sm:py-8 h-full">
+              <div className="rounded-3xl bg-[#DFA8F0]">
+                <div className="rounded-3xl bg-gradient-to-b from-[#FDF8FF]/95 via-[#DFA8F0] to-[#F9EEF8] px-5 py-6 sm:px-7 sm:py-8 h-full">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] shadow-inner">
                       <Code2 className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -326,7 +326,7 @@ const Timeline = () => {
                       <h3 className="text-lg sm:text-xl font-display font-semibold text-[#4C1D95]">
                         Parallel Technical Workshop
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#5B4B5C] font-sans">
+                      <p className="text-xs sm:text-sm text-[#2D1B36] font-sans">
                         Deep-dive, hands-on build track running alongside main sessions.
                       </p>
                     </div>
@@ -364,7 +364,7 @@ const Timeline = () => {
                         <p className="text-xs sm:text-sm font-display text-[#4C1D95]">
                           {item.label}
                         </p>
-                        <p className="text-[11px] sm:text-xs text-[#5B4B5C] font-sans leading-snug">
+                        <p className="text-[11px] sm:text-xs text-[#2D1B36] font-sans leading-snug">
                           {item.description}
                         </p>
                       </div>

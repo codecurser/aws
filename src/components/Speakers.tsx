@@ -75,7 +75,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, compact = fal
                 
                 {/* Company and Location */}
                 <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2 text-[#5B4B5C]">
+                    <div className="flex items-center gap-2 text-[#2D1B36]">
                         <Briefcase className={`${
                             compact ? 'w-3 h-3' : 'w-4 h-4'
                         }`} />
@@ -100,7 +100,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, compact = fal
                             <motion.a
                                 href={speaker.social.linkedin}
                                 whileHover={{ scale: 1.2, rotate: 5 }}
-                                className="text-[#5B4B5C] hover:text-[#7C3AED] transition-colors"
+                                className="text-[#2D1B36] hover:text-[#7C3AED] transition-colors"
                             >
                                 <Linkedin className={compact ? 'w-4 h-4' : 'w-5 h-5'} />
                             </motion.a>
@@ -109,7 +109,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, compact = fal
                             <motion.a
                                 href={speaker.social.twitter}
                                 whileHover={{ scale: 1.2, rotate: -5 }}
-                                className="text-[#5B4B5C] hover:text-[#7C3AED] transition-colors"
+                                className="text-[#2D1B36] hover:text-[#7C3AED] transition-colors"
                             >
                                 <Twitter className={compact ? 'w-4 h-4' : 'w-5 h-5'} />
                             </motion.a>
@@ -118,7 +118,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, compact = fal
                             <motion.a
                                 href={speaker.social.github}
                                 whileHover={{ scale: 1.2, rotate: 5 }}
-                                className="text-[#5B4B5C] hover:text-[#7C3AED] transition-colors"
+                                className="text-[#2D1B36] hover:text-[#7C3AED] transition-colors"
                             >
                                 <Github className={compact ? 'w-4 h-4' : 'w-5 h-5'} />
                             </motion.a>
@@ -176,7 +176,7 @@ const Speakers = () => {
                         <Star className="w-8 h-8 text-[#7C3AED]" />
                     </div>
                     <div className="w-32 h-1.5  mx-auto rounded-full"></div>
-                    <p className="text-[#5B4B5C] max-w-3xl mx-auto text-lg mt-6 font-sans leading-relaxed">
+                    <p className="text-[#2D1B36] max-w-3xl mx-auto text-lg mt-6 font-sans leading-relaxed">
                         Learn from the brightest minds and industry leaders shaping the future of cloud computing.
                     </p>
                 </motion.div>
@@ -256,7 +256,7 @@ export const Team = () => {
                         <div className="w-8 h-8  rounded-full flex items-center justify-center text-[#4C1D95] font-bold">🚀</div>
                     </div>
                     <div className="w-32 h-1.5  mx-auto rounded-full"></div>
-                    <p className="text-[#5B4B5C] max-w-3xl mx-auto text-lg mt-6 font-sans leading-relaxed">
+                    <p className="text-[#2D1B36] max-w-3xl mx-auto text-lg mt-6 font-sans leading-relaxed">
                         The passionate team behind AWS Student Community Day Delhi NCR.
                     </p>
                 </motion.div>
@@ -277,7 +277,7 @@ export const Team = () => {
                             </div>
                             <h4 className="text-xl font-bold text-[#4C1D95] mb-2 group-hover:text-[#7C3AED] transition-colors">{member.name}</h4>
                             <p className="text-[#7C3AED] font-medium mb-1">{member.role}</p>
-                            <p className="text-[#5B4B5C] text-sm">{member.company}</p>
+                            <p className="text-[#2D1B36] text-sm">{member.company}</p>
                             
                             {/* Social Links */}
                             <div className="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-[#7C3AED]/20">
@@ -285,7 +285,7 @@ export const Team = () => {
                                     <motion.a
                                         href={member.social.linkedin}
                                         whileHover={{ scale: 1.2, rotate: 5 }}
-                                        className="text-[#5B4B5C] hover:text-[#7C3AED] transition-colors"
+                                        className="text-[#2D1B36] hover:text-[#7C3AED] transition-colors"
                                     >
                                         <Linkedin className="w-4 h-4" />
                                     </motion.a>
@@ -294,7 +294,7 @@ export const Team = () => {
                                     <motion.a
                                         href={member.social.twitter}
                                         whileHover={{ scale: 1.2, rotate: -5 }}
-                                        className="text-[#5B4B5C] hover:text-[#7C3AED] transition-colors"
+                                        className="text-[#2D1B36] hover:text-[#7C3AED] transition-colors"
                                     >
                                         <Twitter className="w-4 h-4" />
                                     </motion.a>
@@ -303,7 +303,7 @@ export const Team = () => {
                                     <motion.a
                                         href={member.social.github}
                                         whileHover={{ scale: 1.2, rotate: 5 }}
-                                        className="text-[#5B4B5C] hover:text-[#7C3AED] transition-colors"
+                                        className="text-[#2D1B36] hover:text-[#7C3AED] transition-colors"
                                     >
                                         <Github className="w-4 h-4" />
                                     </motion.a>

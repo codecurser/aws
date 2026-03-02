@@ -7,7 +7,7 @@ import TimelinePage from './pages/TimelinePage';
 
 function App() {
   return (
-    <div className="bg-[#F3EDEE] min-h-screen text-[#4C1D95] font-sans selection:bg-sunset-purple selection:text-[#4C1D95]">
+    <div className="bg-[#DFA8F0] min-h-screen text-[#4C1D95] font-sans selection:bg-sunset-purple selection:text-[#4C1D95]">
       <Navbar />
       <main>
         <Routes>
