@@ -105,7 +105,7 @@ const About = () => {
                         <Sparkles className="w-6 h-6 text-[#7C3AED]" />
                     </div>
                     <div className="w-32 h-1.5  mx-auto rounded-full"></div>
-                    <p className="text-[#2D1B36] max-w-3xl mx-auto text-lg mt-6 font-sans leading-relaxed">
+                    <p className="text-[#5B4B5C] max-w-3xl mx-auto text-lg mt-6 font-sans leading-relaxed">
                         AWS Cloud Club Sharda University is a student-run AWS community helping peers learn cloud, DevOps, AI/ML and security through hands-on events. 
                         Our Student Community Day brings that energy into one day focused on inclusive, career-ready cloud learning.
                     </p>
@@ -117,7 +117,7 @@ const About = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-[#2D1B36] space-y-8 text-lg leading-relaxed font-sans"
+                        className="text-[#5B4B5C] space-y-8 text-lg leading-relaxed font-sans"
                     >
                         <div className="relative group">
                             <div className="absolute -left-4 top-0 w-1 h-full  rounded-full"></div>
@@ -144,7 +144,7 @@ const About = () => {
                             </p>
                         </div>
                         <div className="flex flex-wrap items-center gap-3 text-sm mt-2">
-                            <span className="text-[#2D1B36] font-sans">
+                            <span className="text-[#5B4B5C] font-sans">
                                 Stay connected with upcoming meetups and activities.
                             </span>
                             <a
@@ -172,7 +172,7 @@ const About = () => {
                             <div className="text-center p-8 relative z-10">
                                 <div className="text-6xl mb-4 animate-bounce-in">🎉</div>
                                 <h3 className="text-2xl font-display font-bold mb-2 text-[#4C1D95]">Community Vibes</h3>
-                                <p className="text-[#2D1B36] font-sans">Where Cloud Meets Culture</p>
+                                <p className="text-[#5B4B5C] font-sans">Where Cloud Meets Culture</p>
                                 <div className="mt-4 flex justify-center gap-2">
                                     <div className="w-2 h-2 bg-sunset-purple rounded-full"></div>
                                     <div className="w-2 h-2 bg-sunset-pink rounded-full delay-1000"></div>
@@ -207,7 +207,7 @@ const About = () => {
                                 </span>
                                 {stat.value.includes('+') && '+'}
                             </div>
-                            <div className="text-[#2D1B36] font-medium font-sans uppercase tracking-widest text-sm">{stat.label}</div>
+                            <div className="text-[#5B4B5C] font-medium font-sans uppercase tracking-widest text-sm">{stat.label}</div>
                         </motion.div>
                     ))}
                 </div>
