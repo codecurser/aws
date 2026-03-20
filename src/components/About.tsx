@@ -1,16 +1,30 @@
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Mic, Clock, Star, Sparkles, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+const slideImages = [
+    { src: '/logo.png',     alt: 'AWS Student Community Day Delhi NCR', fit: 'contain' },
+    { src: '/sharda.jpeg',  alt: 'Sharda University',                   fit: 'cover'   },
+];
+
 const About = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [slideIndex, setSlideIndex] = useState(0);
     const [counters, setCounters] = useState({
         attendees: 0,
         speakers: 0,
         hours: 0,
         workshops: 0
     });
+
+    // Auto-cycle slides every 3 s
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setSlideIndex(prev => (prev + 1) % slideImages.length);
+        }, 3000);
+        return () => clearInterval(timer);
+    }, []);
 
     const stats = [
         { icon: Users, label: 'Attendees', value: '500+', target: 500 },
@@ -169,14 +183,49 @@ const About = () => {
                         <div className="absolute inset-0  rounded-3xl rotate-3 opacity-60 blur-xl group-hover:opacity-80 transition-all duration-500"></div>
                         <div className="relative   rounded-3xl border border-[#7C3AED]/20 h-72 md:h-96 flex items-center justify-center overflow-hidden hover:border-sunset-purple/50 transition-all duration-500">
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(139,92,246,0.1)_100%)]"></div>
-                            <div className="text-center p-8 relative z-10">
-                                <div className="text-6xl mb-4 animate-bounce-in">🎉</div>
-                                <h3 className="text-2xl font-display font-bold mb-2 text-[#4C1D95]">Community Vibes</h3>
-                                <p className="text-[#5B4B5C] font-sans">Where Cloud Meets Culture</p>
-                                <div className="mt-4 flex justify-center gap-2">
-                                    <div className="w-2 h-2 bg-sunset-purple rounded-full"></div>
-                                    <div className="w-2 h-2 bg-sunset-pink rounded-full delay-1000"></div>
-                                    <div className="w-2 h-2 bg-sunset-orange rounded-full delay-500"></div>
+                            {/* Auto-cycling image slideshow */}
+                            <div className="relative w-full h-full">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={slideIndex}
+                                        initial={{ opacity: 0, scale: 1.05 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.95 }}
+                                        transition={{ duration: 0.7, ease: 'easeInOut' }}
+                                        className="absolute inset-0 flex items-center justify-center"
+                                    >
+                                        {slideImages[slideIndex].fit === 'contain' ? (
+                                            <motion.img
+                                                src={slideImages[slideIndex].src}
+                                                alt={slideImages[slideIndex].alt}
+                                                className="object-contain drop-shadow-xl p-8"
+                                                style={{ maxHeight: '220px', maxWidth: '90%' }}
+                                                animate={{ y: [0, -10, 0] }}
+                                                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                                            />
+                                        ) : (
+                                            <img
+                                                src={slideImages[slideIndex].src}
+                                                alt={slideImages[slideIndex].alt}
+                                                className="w-full h-full object-cover rounded-3xl"
+                                            />
+                                        )}
+                                    </motion.div>
+                                </AnimatePresence>
+
+                                {/* Dot indicators */}
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                                    {slideImages.map((_, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={() => setSlideIndex(i)}
+                                            className={`h-2 rounded-full transition-all duration-300 ${
+                                                i === slideIndex
+                                                    ? 'bg-[#7C3AED] w-5'
+                                                    : 'bg-[#7C3AED]/30 w-2'
+                                            }`}
+                                        />
+                                    ))}
                                 </div>
                             </div>
                         </div>
