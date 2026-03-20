@@ -1,226 +1,243 @@
 
 import { motion } from 'framer-motion';
-import { Star, Award, TrendingUp, Briefcase, Linkedin, Twitter, Github } from 'lucide-react';
+import { Linkedin, Mic, Award, Crown, Twitter, Github } from 'lucide-react';
 
-interface SpeakerCardProps {
-    speaker: {
-        name: string;
-        role: string;
-        company: string;
-        social?: { linkedin?: string; twitter?: string; github?: string };
-        featured?: boolean;
-    };
-    index: number;
-    compact?: boolean;
+// Speaker images
+import imgAdityaJaiswal from '../assets/Aditya Jaiswal.png';
+import imgAnjaliKumari from '../assets/Anjali Kumari.png';
+import imgArkodyutiSaha from '../assets/Arkodyuti Saha.png';
+import imgAshishKumar from '../assets/Ashish Kumar.png';
+import imgDrSunilPathak from '../assets/Dr Sunil Pathak.png';
+import imgGouravSharma from '../assets/Gourav Sharma.png';
+import imgNitinPandit from '../assets/Nitin Pandit.png';
+import imgTanishiMookerjee from '../assets/Tanishi Mookerjee.png';
+
+/* ─── Types ─────────────────────────────────────────────────────────── */
+type TalkType =
+    | 'Technical Talk'
+    | 'Guest of Honour and Technical Speaker'
+    | 'Chief Guest and Keynote Speaker'
+    | 'Guest of Honour and Keynote Speaker';
+
+interface Speaker {
+    name: string;
+    talkType: TalkType;
+    image: string;
+    linkedin: string;
+    vip?: boolean; // Chief / Keynote / Guest of Honour
 }
 
-const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, compact = false }) => {
-    const initials = speaker.name.split(' ').map(n => n[0]).join('');
-    
+/* ─── Badge config ───────────────────────────────────────────────────── */
+const badgeMeta: Record<TalkType, { label: string; icon: React.ReactNode; color: string }> = {
+    'Technical Talk': {
+        label: 'Technical Talk',
+        icon: <Mic className="w-3 h-3" />,
+        color: 'bg-violet-600/90 text-white',
+    },
+    'Guest of Honour and Technical Speaker': {
+        label: 'Guest of Honour',
+        icon: <Award className="w-3 h-3" />,
+        color: 'bg-amber-500/90 text-white',
+    },
+    'Chief Guest and Keynote Speaker': {
+        label: 'Chief Guest · Keynote',
+        icon: <Crown className="w-3 h-3" />,
+        color: 'bg-rose-600/90 text-white',
+    },
+    'Guest of Honour and Keynote Speaker': {
+        label: 'Guest of Honour · Keynote',
+        icon: <Crown className="w-3 h-3" />,
+        color: 'bg-amber-600/90 text-white',
+    },
+};
+
+/* ─── Speaker Card ───────────────────────────────────────────────────── */
+interface SpeakerCardProps {
+    speaker: Speaker;
+    index: number;
+    large?: boolean;
+}
+
+const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, large = false }) => {
+    const badge = badgeMeta[speaker.talkType];
+
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            whileHover={{ 
-                y: -8, 
-                scale: compact ? 1.02 : 1.05,
-                rotateX: 5,
-                rotateY: 5
-            }}
-            className={`group relative ${
-                compact 
-                    ? 'bg-white  shadow-[0_4px_20px_rgba(124,58,237,0.15)] p-6 rounded-2xl border border-[#7C3AED]/20 hover:border-sunset-purple/50 transition-all duration-500' 
-                    : '  p-8 rounded-3xl border border-[#7C3AED]/20 hover:border-sunset-purple/50 transition-all duration-500'
-            }`}
+            transition={{ duration: 0.55, delay: index * 0.08 }}
+            className={`group relative overflow-hidden rounded-3xl cursor-pointer select-none ${
+                large ? 'h-[500px]' : 'h-[380px]'
+            } ${speaker.vip ? 'ring-2 ring-amber-400/60 ring-offset-2 ring-offset-transparent' : ''}`}
         >
-            {/* Glass effect overlay */}
-            <div className="absolute inset-0  rounded-inherit pointer-events-none"></div>
-            
-            {/* Featured badge */}
-            {speaker.featured && !compact && (
-                <div className="absolute -top-3 -right-3">
-                    <div className=" text-[#4C1D95] px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
-                        <Star className="w-3 h-3 fill-current" />
-                        Featured
-                    </div>
-                </div>
+            {/* ── Full-bleed photo ── */}
+            <img
+                src={speaker.image}
+                alt={speaker.name}
+                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+
+            {/* ── Always-visible bottom gradient ── */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+
+            {/* ── VIP shimmer ring on hover ── */}
+            {speaker.vip && (
+                <div className="absolute inset-0 rounded-3xl border-2 border-amber-300/0 group-hover:border-amber-300/60 transition-all duration-500 pointer-events-none" />
             )}
-            
-            <div className="relative z-10">
-                {/* Avatar Section */}
-                <div className="flex items-center gap-4 mb-4">
-                    <div className={`relative ${
-                        compact ? 'w-12 h-12' : 'w-16 h-16'
-                    }  rounded-xl flex items-center justify-center text-[#4C1D95] font-bold shadow-lg group-hover:scale-110 transition-transform`}>
-                        <span className={compact ? 'text-lg' : 'text-xl'}>{initials}</span>
-                        {/* Animated ring */}
-                        <div className="absolute inset-0 rounded-xl border-2 border-sunset-purple/30"></div>
-                    </div>
-                    
-                    <div className="flex-1 min-w-0">
-                        <h3 className={`font-bold text-[#4C1D95] mb-1 group-hover:text-[#7C3AED] transition-colors ${
-                            compact ? 'text-base' : 'text-xl'
-                        }`}>
-                            {speaker.name}
-                        </h3>
-                        <p className={`text-[#7C3AED] font-medium ${
-                            compact ? 'text-xs' : 'text-sm'
-                        }`}>
-                            {speaker.role}
-                        </p>
-                    </div>
-                </div>
-                
-                {/* Company and Location */}
-                <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2 text-[#5B4B5C]">
-                        <Briefcase className={`${
-                            compact ? 'w-3 h-3' : 'w-4 h-4'
-                        }`} />
-                        <span className={`${
-                            compact ? 'text-xs' : 'text-sm'
-                        }`}>{speaker.company}</span>
-                    </div>
-                    
-                    {speaker.featured && (
-                        <div className="flex items-center gap-1">
-                            <div className="w-2 h-2 rounded-full"></div>
-                            <div className="w-2 h-2 rounded-full delay-75"></div>
-                            <div className="w-2 h-2 rounded-full delay-150"></div>
-                        </div>
-                    )}
-                </div>
-                
-                {/* Social Links */}
-                {speaker.social && (
-                    <div className="flex items-center gap-3 pt-3 border-t border-[#7C3AED]/20">
-                        {speaker.social.linkedin && (
-                            <motion.a
-                                href={speaker.social.linkedin}
-                                whileHover={{ scale: 1.2, rotate: 5 }}
-                                className="text-[#5B4B5C] hover:text-[#7C3AED] transition-colors"
-                            >
-                                <Linkedin className={compact ? 'w-4 h-4' : 'w-5 h-5'} />
-                            </motion.a>
-                        )}
-                        {speaker.social.twitter && (
-                            <motion.a
-                                href={speaker.social.twitter}
-                                whileHover={{ scale: 1.2, rotate: -5 }}
-                                className="text-[#5B4B5C] hover:text-[#7C3AED] transition-colors"
-                            >
-                                <Twitter className={compact ? 'w-4 h-4' : 'w-5 h-5'} />
-                            </motion.a>
-                        )}
-                        {speaker.social.github && (
-                            <motion.a
-                                href={speaker.social.github}
-                                whileHover={{ scale: 1.2, rotate: 5 }}
-                                className="text-[#5B4B5C] hover:text-[#7C3AED] transition-colors"
-                            >
-                                <Github className={compact ? 'w-4 h-4' : 'w-5 h-5'} />
-                            </motion.a>
-                        )}
-                    </div>
-                )}
+
+            {/* ── Talk-type badge — top left ── */}
+            <div className="absolute top-4 left-4 z-10">
+                <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md shadow-lg ${badge.color}`}>
+                    {badge.icon}
+                    {badge.label}
+                </span>
             </div>
-            
-            {/* Hover effect overlay */}
-            <div className="absolute inset-0  rounded-inherit opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+            {/* ── LinkedIn icon — top right ── */}
+            <motion.a
+                href={speaker.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.15 }}
+                onClick={e => e.stopPropagation()}
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-[#0077B5] hover:border-[#0077B5] transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
+            >
+                <Linkedin className="w-4 h-4" />
+            </motion.a>
+
+            {/* ── Bottom info panel ── */}
+            <div className="absolute bottom-0 left-0 right-0 z-10 p-5">
+                <h3 className={`font-display font-bold text-white leading-tight mb-1 ${large ? 'text-2xl' : 'text-xl'}`}>
+                    {speaker.name}
+                </h3>
+
+                {/* Animated reveal: LinkedIn CTA */}
+                <div className="overflow-hidden">
+                    <motion.div
+                        className="flex items-center gap-2 mt-2"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <a
+                            href={speaker.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs text-white/70 hover:text-white transition-colors group/link"
+                        >
+                            <Linkedin className="w-3.5 h-3.5 text-[#0077B5]" />
+                            <span className="underline underline-offset-2 group-hover/link:text-white">Connect on LinkedIn</span>
+                        </a>
+                    </motion.div>
+                </div>
+
+                {/* Hover shimmer bar */}
+                <div className="mt-3 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-violet-400 via-purple-300 to-violet-400 transition-all duration-500 rounded-full" />
+            </div>
         </motion.div>
     );
 };
 
+/* ─── Speakers Section ───────────────────────────────────────────────── */
 const Speakers = () => {
-    const speakers = [
-        { name: 'Dr. Cloud Expert', role: 'Solutions Architect', company: 'AWS', social: { linkedin: '#' }, featured: true },
-        { name: 'Jane DevOps', role: 'DevRel Engineer', company: 'TechCorp', social: { twitter: '#' }, featured: true },
-        { name: 'John Serverless', role: 'CTO', company: 'Startup.io', social: { github: '#' } },
-        { name: 'Priya Python', role: 'ML Engineer', company: 'DataAI', social: { linkedin: '#' } },
-        { name: 'Alex Cloud', role: 'Cloud Architect', company: 'CloudTech', social: { twitter: '#' } },
-        { name: 'Sarah Dev', role: 'Full Stack Developer', company: 'WebStudio', social: { github: '#' } },
-        { name: 'Mike AI', role: 'AI Specialist', company: 'AILabs', social: { linkedin: '#' } },
-        { name: 'Lisa K8s', role: 'DevOps Lead', company: 'KubeCorp', social: { twitter: '#' } },
+    const vipSpeakers: Speaker[] = [
+        {
+            name: 'Dr. Sunil Pathak',
+            talkType: 'Chief Guest and Keynote Speaker',
+            image: imgDrSunilPathak,
+            linkedin: 'https://www.linkedin.com/in/dr-sunil-pathak-7b45922b/',
+            vip: true,
+        },
+        {
+            name: 'Nitin Pandit',
+            talkType: 'Guest of Honour and Keynote Speaker',
+            image: imgNitinPandit,
+            linkedin: 'https://www.linkedin.com/in/nitinpanditofficial/',
+            vip: true,
+        },
+        {
+            name: 'Arkodyuti Saha',
+            talkType: 'Guest of Honour and Technical Speaker',
+            image: imgArkodyutiSaha,
+            linkedin: 'https://www.linkedin.com/in/arkodyutisaha/',
+            vip: true,
+        },
     ];
 
-    const featuredSpeakers = speakers.filter(s => s.featured);
-    const allSpeakers = speakers;
+    const technicalSpeakers: Speaker[] = [
+        { name: 'Ashish Kumar',      talkType: 'Technical Talk', image: imgAshishKumar,      linkedin: 'https://www.linkedin.com/in/ashishkumar99/' },
+        { name: 'Aditya Jaiswal',    talkType: 'Technical Talk', image: imgAdityaJaiswal,    linkedin: 'https://www.linkedin.com/in/adityajaiswal7/' },
+        { name: 'Gourav Sharma',     talkType: 'Technical Talk', image: imgGouravSharma,     linkedin: 'https://www.linkedin.com/in/ping2gouravsharma/' },
+        { name: 'Tanishi Mookerjee', talkType: 'Technical Talk', image: imgTanishiMookerjee, linkedin: 'https://www.linkedin.com/in/tanishi-mookerjee/' },
+        { name: 'Anjali Kumari',     talkType: 'Technical Talk', image: imgAnjaliKumari,     linkedin: 'https://www.linkedin.com/in/anjalikumari22/' },
+    ];
 
     return (
-        <section id="speakers" className="py-20  relative overflow-hidden">
-            {/* Enhanced Background Effects */}
-            <div className="absolute inset-0">
-                <div className="absolute top-0 left-0 w-96 h-96  rounded-full blur-[100px]"></div>
-                <div className="absolute bottom-0 right-0 w-96 h-96  rounded-full blur-[100px]"></div>
-                <div className="absolute inset-0 opacity-20">
-                    <div className="h-full w-full bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-                </div>
+        <section id="speakers" className="py-24 relative overflow-hidden">
+            {/* Background blobs */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-violet-300/20 rounded-full blur-[120px]" />
+                <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-purple-400/15 rounded-full blur-[120px]" />
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                {/* Section Header */}
+
+                {/* ── Section header ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center gap-3 mb-6">
-                        <Star className="w-8 h-8 text-[#7C3AED]" />
-                        <h2 className="text-4xl md:text-6xl font-display font-bold text-[#4C1D95]">
-                            Featured <span className=" text-[#7C3AED]">Speakers</span>
-                        </h2>
-                        <Star className="w-8 h-8 text-[#7C3AED]" />
-                    </div>
-                    <div className="w-32 h-1.5  mx-auto rounded-full"></div>
-                    <p className="text-[#5B4B5C] max-w-3xl mx-auto text-lg mt-6 font-sans leading-relaxed">
-                        Learn from the brightest minds and industry leaders shaping the future of cloud computing.
+                    <span className="inline-flex items-center gap-2 text-[#7C3AED] font-semibold text-sm uppercase tracking-widest mb-4">
+                        <span className="w-8 h-px bg-[#7C3AED]" />
+                        AWS Community Day Delhi NCR
+                        <span className="w-8 h-px bg-[#7C3AED]" />
+                    </span>
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-[#4C1D95]">
+                        Meet Our <span className="text-[#7C3AED]">Speakers</span>
+                    </h2>
+                    <p className="text-[#5B4B5C] max-w-2xl mx-auto text-lg mt-5 font-sans leading-relaxed">
+                        Learn from industry leaders and practitioners shaping the future of cloud computing.
                     </p>
                 </motion.div>
-                
-                {/* Featured Speakers - Compact Grid */}
-                <div className="mb-16">
+
+                {/* ── VIP / Keynote speakers ── */}
+                <div className="mb-6">
                     <div className="flex items-center gap-3 mb-8">
-                        <Award className="w-6 h-6 text-[#7C3AED]" />
-                        <h3 className="text-2xl font-display font-semibold text-[#4C1D95]">Featured Speakers</h3>
-                        <div className="flex-1 h-px "></div>
+                        <Crown className="w-5 h-5 text-amber-500" />
+                        <h3 className="text-lg font-display font-semibold text-[#4C1D95] uppercase tracking-widest">Keynote & Guests of Honour</h3>
+                        <div className="flex-1 h-px bg-gradient-to-r from-amber-300/60 to-transparent" />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {featuredSpeakers.map((speaker, i) => (
-                            <SpeakerCard 
-                                key={`featured-${speaker.name}`}
-                                speaker={speaker} 
-                                index={i}
-                            />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {vipSpeakers.map((spk, i) => (
+                            <SpeakerCard key={spk.name} speaker={spk} index={i} large />
                         ))}
                     </div>
                 </div>
-                
-                {/* All Speakers - Compact Grid */}
-                <div>
+
+                {/* ── Technical speakers ── */}
+                <div className="mt-14">
                     <div className="flex items-center gap-3 mb-8">
-                        <TrendingUp className="w-6 h-6 text-[#7C3AED]" />
-                        <h3 className="text-2xl font-display font-semibold text-[#4C1D95]">All Speakers</h3>
-                        <div className="flex-1 h-px "></div>
+                        <Mic className="w-5 h-5 text-violet-600" />
+                        <h3 className="text-lg font-display font-semibold text-[#4C1D95] uppercase tracking-widest">Technical Speakers</h3>
+                        <div className="flex-1 h-px bg-gradient-to-r from-violet-300/60 to-transparent" />
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {allSpeakers.map((speaker, i) => (
-                            <SpeakerCard 
-                                key={`all-${speaker.name}`}
-                                speaker={speaker} 
-                                index={i}
-                                compact={true}
-                            />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+                        {technicalSpeakers.map((spk, i) => (
+                            <SpeakerCard key={spk.name} speaker={spk} index={i} />
                         ))}
                     </div>
                 </div>
+
             </div>
         </section>
     );
 };
+
+
 
 interface TeamMember {
     name: string;
