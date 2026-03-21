@@ -222,30 +222,30 @@ interface TeamMember {
 const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => {
     const initials = member.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
     return (
-        <div className="group relative flex-shrink-0 w-44 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-purple-300/40 transition-all duration-400 cursor-default select-none mx-3"
-             style={{ height: '220px' }}>
+        <div className="group relative flex-shrink-0 w-64 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgba(124,58,237,0.3)] transition-all duration-500 cursor-default select-none mx-4"
+             style={{ height: '320px' }}>
             {member.image ? (
                 <img
                     src={member.image}
                     alt={member.name}
-                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                 />
             ) : (
-                <div className={`absolute inset-0 bg-gradient-to-br ${member.accentFrom} ${member.accentTo} flex items-center justify-center transition-transform duration-500 group-hover:scale-105`}>
-                    <span className="text-5xl font-black text-white/30 font-display">{initials}</span>
+                <div className={`absolute inset-0 bg-gradient-to-br ${member.accentFrom} ${member.accentTo} flex items-center justify-center transition-transform duration-700 group-hover:scale-105`}>
+                    <span className="text-7xl font-black text-white/30 font-display">{initials}</span>
                 </div>
             )}
             
             {/* Dark scrim for readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none" />
             
             {/* Hover ring effect */}
-            <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-2 ring-violet-400/60 transition-all duration-300 pointer-events-none" />
+            <div className="absolute inset-0 rounded-3xl ring-0 group-hover:ring-2 ring-violet-400/60 transition-all duration-300 pointer-events-none" />
             
             {/* Info panel at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 z-10 p-3 flex flex-col justify-end">
-                <p className="text-white font-display font-bold text-[15px] leading-tight drop-shadow">{member.name}</p>
-                <p className="text-violet-200 text-[10px] mt-1 font-semibold tracking-wide leading-tight line-clamp-2 uppercase">
+            <div className="absolute bottom-0 left-0 right-0 z-10 p-5 flex flex-col justify-end">
+                <p className="text-white font-display font-bold text-[19px] leading-tight drop-shadow-md">{member.name}</p>
+                <p className="text-violet-200 text-[11px] mt-1.5 font-semibold tracking-wider leading-tight line-clamp-2 uppercase">
                     {member.role}
                 </p>
             </div>
