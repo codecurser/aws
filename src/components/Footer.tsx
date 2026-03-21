@@ -26,9 +26,9 @@ const Footer = () => {
                             Bridging the gap between campus learning and industry cloud native innovation.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="w-10 h-10 rounded-full bg-white shadow-[0_4px_20px_rgba(124,58,237,0.05)] flex items-center justify-center text-[#5B4B5C] hover:bg-india-saffron hover:text-[#4C1D95] transition-all transform hover:-translate-y-1"><Twitter size={18} /></a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white shadow-[0_4px_20px_rgba(124,58,237,0.05)] flex items-center justify-center text-[#5B4B5C] hover:bg-india-blue hover:text-[#4C1D95] transition-all transform hover:-translate-y-1"><Linkedin size={18} /></a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white shadow-[0_4px_20px_rgba(124,58,237,0.05)] flex items-center justify-center text-[#5B4B5C] hover:bg-rani-pink hover:text-[#4C1D95] transition-all transform hover:-translate-y-1"><Instagram size={18} /></a>
+                            <a href="https://x.com/awscloudclubsu" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white shadow-[0_4px_20px_rgba(124,58,237,0.05)] flex items-center justify-center text-[#5B4B5C] hover:bg-india-saffron hover:text-[#4C1D95] transition-all transform hover:-translate-y-1"><Twitter size={18} /></a>
+                            <a href="https://www.linkedin.com/company/aws-cloud-club-sharda-university/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white shadow-[0_4px_20px_rgba(124,58,237,0.05)] flex items-center justify-center text-[#5B4B5C] hover:bg-india-blue hover:text-[#4C1D95] transition-all transform hover:-translate-y-1"><Linkedin size={18} /></a>
+                            <a href="https://www.instagram.com/aws_cloud_club_su?igsh=bjBvM252a2NxZXpv" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white shadow-[0_4px_20px_rgba(124,58,237,0.05)] flex items-center justify-center text-[#5B4B5C] hover:bg-rani-pink hover:text-[#4C1D95] transition-all transform hover:-translate-y-1"><Instagram size={18} /></a>
                         </div>
                     </div>
 
@@ -57,9 +57,9 @@ const Footer = () => {
                         <p className="text-[#5B4B5C] text-sm mb-4">
                             Questions? We're here to help.
                         </p>
-                        <a href="mailto:team@awsscd.com" className="flex items-center text-[#4C1D95] hover:text-[#7C3AED] transition-colors group">
-                            <Mail size={18} className="mr-2 group-hover:animate-bounce" />
-                            team@awsscd.com
+                        <a href="mailto:awscloudclub.sharda.university@gmail.com" className="flex items-center text-[#4C1D95] hover:text-[#7C3AED] transition-colors group break-words">
+                            <Mail size={18} className="mr-2 flex-shrink-0 group-hover:animate-bounce" />
+                            <span className="break-all text-xs lg:text-sm">awscloudclub.sharda.university@gmail.com</span>
                         </a>
                     </div>
                 </div>

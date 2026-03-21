@@ -26,7 +26,7 @@ const TimelinePreview = () => {
                 Event Timeline
               </p>
               <p className="text-sm sm:text-base font-sans text-[#5B4B5C]">
-                Full-day flow from <span className="font-semibold text-[#4C1D95]">9:00 AM</span> to{' '}
+                Full-day flow from <span className="font-semibold text-[#4C1D95]">8:45 AM</span> to{' '}
                 <span className="font-semibold text-[#4C1D95]">5:00 PM</span>.
               </p>
             </div>

@@ -48,7 +48,7 @@ const badgeMeta: Record<TalkType, { label: string; icon: React.ReactNode; color:
         color: 'bg-violet-600/90 text-white',
     },
     'Guest of Honour and Technical Speaker': {
-        label: 'Guest of Honour',
+        label: 'Guest of Honour + Technical',
         icon: <Award className="w-3 h-3" />,
         color: 'bg-amber-500/90 text-white',
     },
