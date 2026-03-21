@@ -276,7 +276,6 @@ export const Team = () => {
         { name: 'Aryan Sharma',          role: 'Member · Program&Content/Creative',      image: imgAryanSharma,      accentFrom: 'from-violet-500', accentTo: 'to-purple-700'},
         { name: 'Abhishek Gaur',         role: 'Member · Program & Content',             image: imgAbhishekGaur,     accentFrom: 'from-violet-400', accentTo: 'to-purple-600'},
         { name: 'Astuti Pandey',         role: 'Member · Program & Content',             image: imgAstutiPandey,     accentFrom: 'from-violet-400', accentTo: 'to-purple-600'},
-        { name: 'Anshika Sharma',        role: 'Member · Program & Content',             image: undefined,           accentFrom: 'from-violet-500', accentTo: 'to-purple-700'},
         { name: 'Mohammad Sameer',       role: 'Member · Program & Content',             image: undefined,           accentFrom: 'from-violet-500', accentTo: 'to-purple-700'},
         { name: 'Anshvi',                role: 'Lead · Marketing/Creative',              image: imgAnshvi,           accentFrom: 'from-rose-500',   accentTo: 'to-pink-700'  },
         { name: 'Manav Mehta',           role: 'Head · Creative',                        image: imgManavMehta,       accentFrom: 'from-orange-500', accentTo: 'to-red-700'   },

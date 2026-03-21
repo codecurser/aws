@@ -27,10 +27,10 @@ const About = () => {
     }, []);
 
     const stats = [
-        { icon: Users, label: 'Attendees', value: '500+', target: 500 },
-        { icon: Mic, label: 'Speakers', value: '15+', target: 15 },
+        { icon: Users, label: 'Attendees', value: '800+', target: 800 },
+        { icon: Mic, label: 'Speakers', value: '10+', target: 10 },
         { icon: Clock, label: 'Hours of Content', value: '8+', target: 8 },
-        { icon: Star, label: 'Workshops', value: '4', target: 4 },
+        { icon: Star, label: 'Workshops', value: '1+', target: 1 },
     ];
 
     useEffect(() => {
@@ -65,20 +65,20 @@ const About = () => {
         const duration = 2000; // 2 seconds for animation
         const steps = 60; // 60 frames for smooth animation
         const increment = {
-            attendees: 500 / steps,
-            speakers: 15 / steps,
+            attendees: 800 / steps,
+            speakers: 10 / steps,
             hours: 8 / steps,
-            workshops: 4 / steps
+            workshops: 1 / steps
         };
         
         let currentStep = 0;
         const interval = setInterval(() => {
             if (currentStep <= steps) {
                 setCounters(() => ({
-                    attendees: Math.min(Math.floor(increment.attendees * currentStep), 500),
-                    speakers: Math.min(Math.floor(increment.speakers * currentStep), 15),
+                    attendees: Math.min(Math.floor(increment.attendees * currentStep), 800),
+                    speakers: Math.min(Math.floor(increment.speakers * currentStep), 10),
                     hours: Math.min(Math.floor(increment.hours * currentStep), 8),
-                    workshops: Math.min(Math.floor(increment.workshops * currentStep), 4)
+                    workshops: Math.min(Math.floor(increment.workshops * currentStep), 1)
                 }));
                 currentStep++;
             } else {

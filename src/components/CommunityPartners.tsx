@@ -1,7 +1,7 @@
 
 
 const CommunityPartners = () => {
-    const partners = ['GDG Cloud New Delhi', 'PyData Delhi', 'React India', 'Linux User Group', 'OWASP Delhi'];
+    const partners = ['AWSCC MIMT', 'NerdsRoom', 'EventDevX', 'SWE IGDTUW', 'AWSCC PIET'];
 
     return (
         <section className="py-20 bg-[#F3EDEE] border-y border-[#7C3AED]/20 relative z-10">

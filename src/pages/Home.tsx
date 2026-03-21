@@ -4,9 +4,11 @@ import Hero from '../components/Hero';
 import TimelinePreview from '../components/TimelinePreview';
 import About from '../components/About';
 import Speakers, { Team } from '../components/Speakers';
+import Workshop from '../components/Workshop';
 import Sponsors from '../components/Sponsors';
 import CommunityPartners from '../components/CommunityPartners';
 import Ambassadors from '../components/Ambassadors';
+import Venue from '../components/Venue';
 
 const Home = () => {
   const location = useLocation();
@@ -30,10 +32,12 @@ const Home = () => {
       <TimelinePreview />
       <About />
       <Speakers />
+      <Workshop />
       <Sponsors />
       <CommunityPartners />
       <Team />
       <Ambassadors />
+      <Venue />
     </>
   );
 };

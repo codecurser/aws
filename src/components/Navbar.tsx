@@ -30,8 +30,10 @@ const Navbar = () => {
     const navLinks = [
         { name: 'About', href: '#about' },
         { name: 'Speakers', href: '#speakers' },
+        { name: 'Workshop', href: '#workshop' },
         { name: 'Sponsors', href: '#sponsors' },
         { name: 'Team', href: '#team' },
+        { name: 'Venue', href: '#venue' },
     ];
 
     const handleSectionNav = (href: string) => {
