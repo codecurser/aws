@@ -268,7 +268,6 @@ export const Team = () => {
         { name: 'Shweta Rana',           role: 'Head · Attendee Exp & Mktg',             image: imgShweta,           accentFrom: 'from-pink-500',   accentTo: 'to-rose-700',   linkedin: 'https://www.linkedin.com/in/shwetarx/'  },
         { name: 'Suhani Mitra',          role: 'Member · Attendee Experience',           image: imgSuhaniMitra,      accentFrom: 'from-pink-400',   accentTo: 'to-rose-600',   linkedin: 'https://www.linkedin.com/in/suhani-mitra-17b2203b1'  },
         { name: 'Arman Kumar',           role: 'Member · Attendee Experience',           image: undefined,           accentFrom: 'from-pink-500',   accentTo: 'to-rose-700',   linkedin: 'https://www.linkedin.com/in/arman-kumar-910251289'  },
-        { name: 'Masood Aslam',          role: 'Member · Attendee Experience',           image: undefined,           accentFrom: 'from-pink-500',   accentTo: 'to-rose-700'  },
         { name: 'Aditya Maheshwari',     role: 'Head · Finance',                         image: imgAdityaMaheshwari, accentFrom: 'from-emerald-500',accentTo: 'to-teal-700',   linkedin: 'https://www.linkedin.com/in/adityamx/'  },
         { name: 'Yash Kumar Choudhary',  role: 'Head · Sponsorship',                     image: undefined,           accentFrom: 'from-amber-500',  accentTo: 'to-orange-700', linkedin: 'https://linkedin.com/in/yashkchoudhary'},
         { name: 'Aditya Pratap',         role: 'Co-Lead · Sponsorship',                  image: undefined,           accentFrom: 'from-amber-400',  accentTo: 'to-orange-600', linkedin: 'https://www.linkedin.com/in/aditya-pratap-3066582bb/'},
@@ -276,7 +275,6 @@ export const Team = () => {
         { name: 'Shubham Shukla',        role: 'Head · Partnerships',                    image: undefined,           accentFrom: 'from-sky-500',    accentTo: 'to-blue-700',   linkedin: 'https://www.linkedin.com/in/shubhamshuklax'  },
         { name: 'Ashutosh Kumar Singh',  role: 'Member · Partnerships',                  image: undefined,           accentFrom: 'from-sky-400',    accentTo: 'to-blue-600',   linkedin: 'https://www.linkedin.com/in/ashutosh-kumar-singh-linkedaccount'  },
         { name: 'Pranav Chauhan',        role: 'Member · Partnerships',                  image: undefined,           accentFrom: 'from-sky-500',    accentTo: 'to-blue-700',   linkedin: 'https://linkedin.com/in/pranav-chauhan-a38530380'  },
-        { name: 'Suwarna Rajey',         role: 'Member · Partnerships',                  image: undefined,           accentFrom: 'from-sky-500',    accentTo: 'to-blue-700'  },
         { name: 'Vidit Gupta',           role: 'Head · Operations',                      image: imgViditGupta,       accentFrom: 'from-slate-500',  accentTo: 'to-slate-700',  linkedin: 'https://www.linkedin.com/in/viditgx' },
         { name: 'Dev Tyagi',             role: 'Member · Operations',                    image: undefined,           accentFrom: 'from-slate-400',  accentTo: 'to-slate-600',  linkedin: 'https://www.linkedin.com/in/dev-tyagi-219b26321/' },
         { name: 'Vashu Kaushik',         role: 'Head · Program & Content',               image: imgVashuKaushik,     accentFrom: 'from-violet-500', accentTo: 'to-purple-700', linkedin: 'https://www.linkedin.com/in/vashukaushik/'},
@@ -286,8 +284,6 @@ export const Team = () => {
         { name: 'Mohammad Sameer',       role: 'Member · Program & Content',             image: undefined,           accentFrom: 'from-violet-500', accentTo: 'to-purple-700', linkedin: 'https://linkedin.com/in/connect-to-sam-xyz'},
         { name: 'Anshvi',                role: 'Lead · Marketing/Creative',              image: imgAnshvi,           accentFrom: 'from-rose-500',   accentTo: 'to-pink-700',     linkedin: 'https://linkedin.com/in/anshvi-a27854283'  },
         { name: 'Manav Mehta',           role: 'Head · Creative',                        image: imgManavMehta,       accentFrom: 'from-orange-500', accentTo: 'to-red-700',    linkedin: 'https://www.linkedin.com/in/manav-mehta13/'   },
-        { name: 'Sri Ram Reddy',         role: 'Member · Team',                          image: undefined,           accentFrom: 'from-blue-500',   accentTo: 'to-indigo-700', linkedin: 'https://linkedin.com/in/sri-ram-reddy-bollipalli'},
-        { name: 'Rajvir Singh',          role: 'Member · Team',                          image: undefined,           accentFrom: 'from-teal-500',   accentTo: 'to-emerald-700',linkedin: 'https://linkedin.com/in/rajvir-singh-6b4933322'},
     ];
 
     return (
