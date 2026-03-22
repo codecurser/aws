@@ -7,6 +7,7 @@ import TimelinePage from './pages/TimelinePage';
 import FAQ from './components/FAQ';
 import CodeOfConduct from './components/CodeOfConduct';
 import SponsorshipDeck from './components/SponsorshipDeck';
+import CommunityGuidelines from './components/CommunityGuidelines';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/code-of-conduct" element={<CodeOfConduct />} />
           <Route path="/sponsorship-deck" element={<SponsorshipDeck />} />
+          <Route path="/community-guidelines" element={<CommunityGuidelines />} />
         </Routes>
       </main>
       <Footer />
