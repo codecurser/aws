@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, Target, Users, BarChart, Zap, Shield, Crown, Award, Coffee, Ticket, Globe } from 'lucide-react';
+import { Rocket, Target, Users, Zap, Shield, Crown, Award, Coffee, Ticket, Globe } from 'lucide-react';
 
 const stats = [
     { city: "Chennai", count: "600+" },

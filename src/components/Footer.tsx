@@ -38,8 +38,10 @@ const Footer = () => {
                         <ul className="space-y-3 text-sm text-[#5B4B5C]">
                             <li><a href="#about" className="hover:text-[#7C3AED] transition-colors flex items-center"><span className="w-1.5 h-1.5 bg-india-saffron rounded-full mr-2 opacity-0 hover:opacity-100"></span>About</a></li>
                             <li><a href="#speakers" className="hover:text-[#7C3AED] transition-colors flex items-center"><span className="w-1.5 h-1.5 bg-india-saffron rounded-full mr-2 opacity-0 hover:opacity-100"></span>Speakers</a></li>
+                            <li><a href="#workshop" className="hover:text-[#7C3AED] transition-colors flex items-center"><span className="w-1.5 h-1.5 bg-india-saffron rounded-full mr-2 opacity-0 hover:opacity-100"></span>Workshop</a></li>
                             <li><a href="#sponsors" className="hover:text-[#7C3AED] transition-colors flex items-center"><span className="w-1.5 h-1.5 bg-india-saffron rounded-full mr-2 opacity-0 hover:opacity-100"></span>Sponsors</a></li>
                             <li><a href="#team" className="hover:text-[#7C3AED] transition-colors flex items-center"><span className="w-1.5 h-1.5 bg-india-saffron rounded-full mr-2 opacity-0 hover:opacity-100"></span>Team</a></li>
+                            <li><a href="#venue" className="hover:text-[#7C3AED] transition-colors flex items-center"><span className="w-1.5 h-1.5 bg-india-saffron rounded-full mr-2 opacity-0 hover:opacity-100"></span>Venue</a></li>
                         </ul>
                     </div>
 
