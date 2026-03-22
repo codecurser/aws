@@ -235,8 +235,8 @@ const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => {
     
     return (
         <a href={href} target={href ? "_blank" : undefined} rel={href ? "noopener noreferrer" : undefined} 
-           className={`group relative flex-shrink-0 w-64 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgba(124,58,237,0.3)] transition-all duration-500 select-none mx-4 block ${href ? 'cursor-pointer' : 'cursor-default'}`}
-           style={{ height: '320px' }}>
+           className={`group relative flex-shrink-0 w-[200px] sm:w-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgba(124,58,237,0.3)] transition-all duration-500 select-none mx-2 sm:mx-4 block ${href ? 'cursor-pointer' : 'cursor-default'}`}
+           style={{ height: '280px', sm: { height: '320px' } } as any}>
             {member.image ? (
                 <img
                     src={member.image}
@@ -313,7 +313,12 @@ export const Team = () => {
                     100% { transform: translateX(-50%); }
                 }
                 .animate-marquee {
-                    animation: scrollMarquee 45s linear infinite;
+                    animation: scrollMarquee 70s linear infinite;
+                }
+                @media (max-width: 640px) {
+                    .animate-marquee {
+                        animation-duration: 40s;
+                    }
                 }
                 .marquee-container:hover .animate-marquee {
                     animation-play-state: paused;
@@ -350,10 +355,10 @@ export const Team = () => {
                 </motion.div>
                 
                 {/* Full-width continuous scrolling marquee */}
-                <div className="marquee-container overflow-hidden whitespace-nowrap relative w-[100vw] ml-[calc(-50vw+50%)] py-8">
+                <div className="marquee-container overflow-hidden whitespace-nowrap relative py-8 -mx-4 sm:-mx-6 lg:-mx-8">
                     {/* Gradient fade on the left and right edges for a seamless appearance */}
-                    <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#F3EDEE] to-transparent z-10 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#F3EDEE] to-transparent z-10 pointer-events-none" />
+                    <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#F3EDEE] to-transparent z-10 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#F3EDEE] to-transparent z-10 pointer-events-none" />
                     
                     <div className="inline-flex animate-marquee">
                         {/* 

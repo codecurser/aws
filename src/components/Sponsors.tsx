@@ -13,19 +13,11 @@ interface Sponsor {
 const sponsors: Sponsor[] = [
     {
         name: 'Logitech',
-        tagline: 'Hardware Partner',
+        tagline: 'Gold Sponsor',
         website: 'https://www.logitech.com',
         logoUrl: '/sponsors/logitech.png',
         glowColor: 'rgba(30, 64, 175, 0.15)',
         borderColor: '#1d9bf0',
-    },
-    {
-        name: 'TruScholar',
-        tagline: 'Credential Partner',
-        website: 'https://truscholar.io',
-        logoUrl: '/sponsors/truscholar.png',
-        glowColor: 'rgba(124, 58, 237, 0.18)',
-        borderColor: '#7C3AED',
     },
     {
         name: 'Pearson',
@@ -35,10 +27,18 @@ const sponsors: Sponsor[] = [
         glowColor: 'rgba(14, 165, 233, 0.18)',
         borderColor: '#0ea5e9',
     },
+    {
+        name: 'TruScholar',
+        tagline: 'Certification Partner',
+        website: 'https://truscholar.io',
+        logoUrl: '/sponsors/truscholar.png',
+        glowColor: 'rgba(124, 58, 237, 0.18)',
+        borderColor: '#7C3AED',
+    },
 ];
 
 /* ─── 3-D Tilt Card ──────────────────────────────────────────────────── */
-const SponsorCard: React.FC<{ sponsor: Sponsor; index: number }> = ({ sponsor: s, index }) => {
+const SponsorCard: React.FC<{ sponsor: Sponsor; index: number; isFeatured?: boolean }> = ({ sponsor: s, index, isFeatured }) => {
     const ref = useRef<HTMLAnchorElement>(null);
 
     const x = useMotionValue(0);
@@ -64,7 +64,7 @@ const SponsorCard: React.FC<{ sponsor: Sponsor; index: number }> = ({ sponsor: s
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.65, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
             style={{ perspective: 900 }}
-            className="w-full max-w-sm flex-1"
+            className={`w-full ${isFeatured ? 'max-w-xl' : 'max-w-sm'} flex-1`}
         >
             <motion.a
                 ref={ref}
@@ -73,11 +73,16 @@ const SponsorCard: React.FC<{ sponsor: Sponsor; index: number }> = ({ sponsor: s
                 rel="noopener noreferrer"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="sponsor-card group relative flex flex-col items-center justify-center text-center
-                           rounded-3xl p-10 cursor-pointer overflow-hidden block"
+                className={`sponsor-card group relative flex flex-col items-center justify-center text-center
+                           rounded-3xl ${isFeatured ? 'p-14' : 'p-10'} cursor-pointer overflow-hidden block`}
+                style={{ 
+                    rotateX, 
+                    rotateY, 
+                    transformStyle: 'preserve-3d',
+                    height: isFeatured ? '380px' : '320px' 
+                }}
             >
                 {/* Glass background */}
                 <div className="absolute inset-0 rounded-3xl bg-white/70 backdrop-blur-md border border-white/60
@@ -116,12 +121,12 @@ const SponsorCard: React.FC<{ sponsor: Sponsor; index: number }> = ({ sponsor: s
 
                 {/* LOGO — big & prominent */}
                 <div className="relative z-10 flex items-center justify-center w-full mb-8"
-                     style={{ height: '110px' }}>
+                     style={{ height: isFeatured ? '140px' : '110px' }}>
                     <motion.img
                         src={s.logoUrl}
                         alt={s.name}
                         className="object-contain w-full"
-                        style={{ maxHeight: '100px', maxWidth: '240px' }}
+                        style={{ maxHeight: isFeatured ? '130px' : '100px', maxWidth: isFeatured ? '320px' : '240px' }}
                         initial={{ scale: 0.85, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                         transition={{ delay: index * 0.15 + 0.2, duration: 0.5, ease: 'easeOut' }}
@@ -215,10 +220,19 @@ const Sponsors = () => (
                 </p>
             </motion.div>
 
-            {/* Cards */}
+            {/* Featured Sponsor - Logitech */}
+            <div className="flex justify-center mb-12">
+                {sponsors.slice(0, 1).map((s, i) => (
+                    <div key={s.name} className="w-full max-w-lg">
+                        <SponsorCard sponsor={s} index={i} isFeatured={true} />
+                    </div>
+                ))}
+            </div>
+
+            {/* Other Partners */}
             <div className="flex flex-col sm:flex-row items-stretch justify-center gap-7">
-                {sponsors.map((s, i) => (
-                    <SponsorCard key={s.name} sponsor={s} index={i} />
+                {sponsors.slice(1).map((s, i) => (
+                    <SponsorCard key={s.name} sponsor={s} index={i + 1} />
                 ))}
             </div>
 
