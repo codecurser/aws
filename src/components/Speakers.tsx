@@ -24,7 +24,7 @@ import imgAryanSharma      from '../assets/Aryan Sharma.png';
 import imgAbhishekGaur     from '../assets/Abhishek Gaur.jpeg';
 import imgAstutiPandey     from '../assets/Astuti pandey (2).jpeg';
 import imgSuhaniMitra      from '../assets/Suhani mitra.jpeg';
-import imgDevTyagi         from '../assets/1759052526445.jpg';
+import imgDevTyagi         from '../assets/dev.jpg';
 import imgGauriRawat       from '../assets/Gauri rawat.jpg';
 import imgAdityaPratap     from '../assets/aditya pratap.jpg';
 import imgArmanKumar       from '../assets/arman.jpg';
@@ -249,17 +249,25 @@ const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => {
                 </div>
             )}
             
-            {/* Dark scrim for readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none" />
+            {/* Campus Ambassador Style Overlay over the photo */}
+            <div className="absolute inset-0 bg-[#F3EDEE]/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none z-0">
+                {member.linkedin && (
+                    <div className="text-[#0077B5] drop-shadow-lg scale-125 translate-y-[-15px] group-hover:translate-y-[-20px] transition-all duration-500">
+                        <Linkedin size={36} />
+                    </div>
+                )}
+            </div>
+
+            {/* Dark scrim for readability (kept on top so white text remains readable!) */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none z-10" />
             
             {/* Hover ring effect */}
-            <div className="absolute inset-0 rounded-3xl ring-0 group-hover:ring-2 ring-violet-400/60 transition-all duration-300 pointer-events-none" />
+            <div className="absolute inset-0 rounded-3xl ring-0 group-hover:ring-2 ring-violet-400/60 transition-all duration-300 pointer-events-none z-20" />
             
             {/* Info panel at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 z-10 p-5 flex flex-col justify-end">
+            <div className="absolute bottom-0 left-0 right-0 z-30 p-5 flex flex-col justify-end">
                 <div className="flex items-center gap-2">
                     <p className="text-white font-display font-bold text-[19px] leading-tight drop-shadow-md truncate">{member.name}</p>
-                    {member.linkedin && <Linkedin className="w-3.5 h-3.5 text-violet-200 opacity-50 group-hover:opacity-100 group-hover:text-[#0077B5] transition-all flex-shrink-0" />}
                 </div>
                 <p className="text-violet-200 text-[11px] mt-1.5 font-semibold tracking-wider leading-tight line-clamp-2 uppercase">
                     {member.role}
