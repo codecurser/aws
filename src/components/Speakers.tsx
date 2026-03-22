@@ -217,13 +217,17 @@ interface TeamMember {
     image?: string;
     accentFrom: string;
     accentTo: string;
+    linkedin?: string;
 }
 
 const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => {
     const initials = member.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+    const href = member.linkedin ? (member.linkedin.startsWith('http') ? member.linkedin : `https://${member.linkedin}`) : undefined;
+    
     return (
-        <div className="group relative flex-shrink-0 w-64 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgba(124,58,237,0.3)] transition-all duration-500 cursor-default select-none mx-4"
-             style={{ height: '320px' }}>
+        <a href={href} target={href ? "_blank" : undefined} rel={href ? "noopener noreferrer" : undefined} 
+           className={`group relative flex-shrink-0 w-64 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgba(124,58,237,0.3)] transition-all duration-500 select-none mx-4 block ${href ? 'cursor-pointer' : 'cursor-default'}`}
+           style={{ height: '320px' }}>
             {member.image ? (
                 <img
                     src={member.image}
@@ -244,12 +248,15 @@ const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => {
             
             {/* Info panel at bottom */}
             <div className="absolute bottom-0 left-0 right-0 z-10 p-5 flex flex-col justify-end">
-                <p className="text-white font-display font-bold text-[19px] leading-tight drop-shadow-md">{member.name}</p>
+                <div className="flex items-center gap-2">
+                    <p className="text-white font-display font-bold text-[19px] leading-tight drop-shadow-md truncate">{member.name}</p>
+                    {member.linkedin && <Linkedin className="w-3.5 h-3.5 text-violet-200 opacity-50 group-hover:opacity-100 group-hover:text-[#0077B5] transition-all flex-shrink-0" />}
+                </div>
                 <p className="text-violet-200 text-[11px] mt-1.5 font-semibold tracking-wider leading-tight line-clamp-2 uppercase">
                     {member.role}
                 </p>
             </div>
-        </div>
+        </a>
     );
 };
 
@@ -257,28 +264,30 @@ const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => {
 export const Team = () => {
     // Deduplicated list of team members
     const members: TeamMember[] = [
-        { name: 'Utkarsh Gaur',          role: 'Captain · SCD / Finance Advisor',        image: imgUtkarsh,          accentFrom: 'from-violet-600', accentTo: 'to-purple-800' },
-        { name: 'Shweta',                role: 'Head · Attendee Exp & Mktg',             image: imgShweta,           accentFrom: 'from-pink-500',   accentTo: 'to-rose-700'  },
-        { name: 'Suhani Mitra',          role: 'Member · Attendee Experience',           image: imgSuhaniMitra,      accentFrom: 'from-pink-400',   accentTo: 'to-rose-600'  },
-        { name: 'Arman Kumar',           role: 'Member · Attendee Experience',           image: undefined,           accentFrom: 'from-pink-500',   accentTo: 'to-rose-700'  },
+        { name: 'Utkarsh Gaur',          role: 'Captain · SCD / Finance Advisor',        image: imgUtkarsh,          accentFrom: 'from-violet-600', accentTo: 'to-purple-800', linkedin: 'https://linkedin.com/in/ugaur' },
+        { name: 'Shweta Rana',           role: 'Head · Attendee Exp & Mktg',             image: imgShweta,           accentFrom: 'from-pink-500',   accentTo: 'to-rose-700',   linkedin: 'https://www.linkedin.com/in/shwetarx/'  },
+        { name: 'Suhani Mitra',          role: 'Member · Attendee Experience',           image: imgSuhaniMitra,      accentFrom: 'from-pink-400',   accentTo: 'to-rose-600',   linkedin: 'https://www.linkedin.com/in/suhani-mitra-17b2203b1'  },
+        { name: 'Arman Kumar',           role: 'Member · Attendee Experience',           image: undefined,           accentFrom: 'from-pink-500',   accentTo: 'to-rose-700',   linkedin: 'https://www.linkedin.com/in/arman-kumar-910251289'  },
         { name: 'Masood Aslam',          role: 'Member · Attendee Experience',           image: undefined,           accentFrom: 'from-pink-500',   accentTo: 'to-rose-700'  },
-        { name: 'Aditya Maheshwari',     role: 'Head · Finance',                         image: imgAdityaMaheshwari, accentFrom: 'from-emerald-500',accentTo: 'to-teal-700'  },
-        { name: 'Yash Kumar',            role: 'Head · Sponsorship',                     image: undefined,           accentFrom: 'from-amber-500',  accentTo: 'to-orange-700'},
-        { name: 'Aditya Pratap',         role: 'Co-Lead · Sponsorship',                  image: undefined,           accentFrom: 'from-amber-400',  accentTo: 'to-orange-600'},
-        { name: 'Gauri Rawat',           role: 'Member · Sponsorship',                   image: undefined,           accentFrom: 'from-amber-500',  accentTo: 'to-orange-700'},
-        { name: 'Shubham Shukla',        role: 'Head · Partnerships',                    image: undefined,           accentFrom: 'from-sky-500',    accentTo: 'to-blue-700'  },
-        { name: 'Ashutosh K Singh',      role: 'Member · Partnerships',                  image: undefined,           accentFrom: 'from-sky-400',    accentTo: 'to-blue-600'  },
-        { name: 'Pranav Chauhan',        role: 'Member · Partnerships',                  image: undefined,           accentFrom: 'from-sky-500',    accentTo: 'to-blue-700'  },
+        { name: 'Aditya Maheshwari',     role: 'Head · Finance',                         image: imgAdityaMaheshwari, accentFrom: 'from-emerald-500',accentTo: 'to-teal-700',   linkedin: 'https://www.linkedin.com/in/adityamx/'  },
+        { name: 'Yash Kumar Choudhary',  role: 'Head · Sponsorship',                     image: undefined,           accentFrom: 'from-amber-500',  accentTo: 'to-orange-700', linkedin: 'https://linkedin.com/in/yashkchoudhary'},
+        { name: 'Aditya Pratap',         role: 'Co-Lead · Sponsorship',                  image: undefined,           accentFrom: 'from-amber-400',  accentTo: 'to-orange-600', linkedin: 'https://www.linkedin.com/in/aditya-pratap-3066582bb/'},
+        { name: 'Gauri Rawat',           role: 'Member · Sponsorship',                   image: undefined,           accentFrom: 'from-amber-500',  accentTo: 'to-orange-700', linkedin: 'https://linkedin.com/in/gauri-rawat-193970394'},
+        { name: 'Shubham Shukla',        role: 'Head · Partnerships',                    image: undefined,           accentFrom: 'from-sky-500',    accentTo: 'to-blue-700',   linkedin: 'https://www.linkedin.com/in/shubhamshuklax'  },
+        { name: 'Ashutosh Kumar Singh',  role: 'Member · Partnerships',                  image: undefined,           accentFrom: 'from-sky-400',    accentTo: 'to-blue-600',   linkedin: 'https://www.linkedin.com/in/ashutosh-kumar-singh-linkedaccount'  },
+        { name: 'Pranav Chauhan',        role: 'Member · Partnerships',                  image: undefined,           accentFrom: 'from-sky-500',    accentTo: 'to-blue-700',   linkedin: 'https://linkedin.com/in/pranav-chauhan-a38530380'  },
         { name: 'Suwarna Rajey',         role: 'Member · Partnerships',                  image: undefined,           accentFrom: 'from-sky-500',    accentTo: 'to-blue-700'  },
-        { name: 'Vidit Gupta',           role: 'Head · Operations',                      image: imgViditGupta,       accentFrom: 'from-slate-500',  accentTo: 'to-slate-700' },
-        { name: 'Dev Tyagi',             role: 'Member · Operations',                    image: undefined,           accentFrom: 'from-slate-400',  accentTo: 'to-slate-600' },
-        { name: 'Vashu Kaushik',         role: 'Head · Program & Content',               image: imgVashuKaushik,     accentFrom: 'from-violet-500', accentTo: 'to-purple-700'},
-        { name: 'Aryan Sharma',          role: 'Member · Program&Content/Creative',      image: imgAryanSharma,      accentFrom: 'from-violet-500', accentTo: 'to-purple-700'},
-        { name: 'Abhishek Gaur',         role: 'Member · Program & Content',             image: imgAbhishekGaur,     accentFrom: 'from-violet-400', accentTo: 'to-purple-600'},
-        { name: 'Astuti Pandey',         role: 'Member · Program & Content',             image: imgAstutiPandey,     accentFrom: 'from-violet-400', accentTo: 'to-purple-600'},
-        { name: 'Mohammad Sameer',       role: 'Member · Program & Content',             image: undefined,           accentFrom: 'from-violet-500', accentTo: 'to-purple-700'},
-        { name: 'Anshvi',                role: 'Lead · Marketing/Creative',              image: imgAnshvi,           accentFrom: 'from-rose-500',   accentTo: 'to-pink-700'  },
-        { name: 'Manav Mehta',           role: 'Head · Creative',                        image: imgManavMehta,       accentFrom: 'from-orange-500', accentTo: 'to-red-700'   },
+        { name: 'Vidit Gupta',           role: 'Head · Operations',                      image: imgViditGupta,       accentFrom: 'from-slate-500',  accentTo: 'to-slate-700',  linkedin: 'https://www.linkedin.com/in/viditgx' },
+        { name: 'Dev Tyagi',             role: 'Member · Operations',                    image: undefined,           accentFrom: 'from-slate-400',  accentTo: 'to-slate-600',  linkedin: 'https://www.linkedin.com/in/dev-tyagi-219b26321/' },
+        { name: 'Vashu Kaushik',         role: 'Head · Program & Content',               image: imgVashuKaushik,     accentFrom: 'from-violet-500', accentTo: 'to-purple-700', linkedin: 'https://www.linkedin.com/in/vashukaushik/'},
+        { name: 'Aryan Sharma',          role: 'Member · Program&Content/Creative',      image: imgAryanSharma,      accentFrom: 'from-violet-500', accentTo: 'to-purple-700', linkedin: 'https://linkedin.com/in/aryan-sharma-9a84142bb'},
+        { name: 'Abhishek Gaur',         role: 'Member · Program & Content',             image: imgAbhishekGaur,     accentFrom: 'from-violet-400', accentTo: 'to-purple-600', linkedin: 'https://linkedin.com/in/abhishek-gaur-5b31602a5'},
+        { name: 'Astuti Pandey',         role: 'Member · Program & Content',             image: imgAstutiPandey,     accentFrom: 'from-violet-400', accentTo: 'to-purple-600', linkedin: 'https://linkedin.com/in/astuti-pandey-0473593aa'},
+        { name: 'Mohammad Sameer',       role: 'Member · Program & Content',             image: undefined,           accentFrom: 'from-violet-500', accentTo: 'to-purple-700', linkedin: 'https://linkedin.com/in/connect-to-sam-xyz'},
+        { name: 'Anshvi',                role: 'Lead · Marketing/Creative',              image: imgAnshvi,           accentFrom: 'from-rose-500',   accentTo: 'to-pink-700',     linkedin: 'https://linkedin.com/in/anshvi-a27854283'  },
+        { name: 'Manav Mehta',           role: 'Head · Creative',                        image: imgManavMehta,       accentFrom: 'from-orange-500', accentTo: 'to-red-700',    linkedin: 'https://www.linkedin.com/in/manav-mehta13/'   },
+        { name: 'Sri Ram Reddy',         role: 'Member · Team',                          image: undefined,           accentFrom: 'from-blue-500',   accentTo: 'to-indigo-700', linkedin: 'https://linkedin.com/in/sri-ram-reddy-bollipalli'},
+        { name: 'Rajvir Singh',          role: 'Member · Team',                          image: undefined,           accentFrom: 'from-teal-500',   accentTo: 'to-emerald-700',linkedin: 'https://linkedin.com/in/rajvir-singh-6b4933322'},
     ];
 
     return (

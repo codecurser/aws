@@ -10,16 +10,7 @@ interface Sponsor {
     glowColor: string;   // rgba glow on hover
     borderColor: string; // border highlight on hover
 }
-
 const sponsors: Sponsor[] = [
-    {
-        name: 'Pearson',
-        tagline: 'Knowledge Partner',
-        website: 'https://www.pearson.com',
-        logoUrl: '/sponsors/pearson.png',
-        glowColor: 'rgba(14, 165, 233, 0.18)',
-        borderColor: '#0ea5e9',
-    },
     {
         name: 'Logitech',
         tagline: 'Hardware Partner',
@@ -35,6 +26,14 @@ const sponsors: Sponsor[] = [
         logoUrl: '/sponsors/truscholar.png',
         glowColor: 'rgba(124, 58, 237, 0.18)',
         borderColor: '#7C3AED',
+    },
+    {
+        name: 'Pearson',
+        tagline: 'Knowledge Partner',
+        website: 'https://www.pearson.com',
+        logoUrl: '/sponsors/pearson.png',
+        glowColor: 'rgba(14, 165, 233, 0.18)',
+        borderColor: '#0ea5e9',
     },
 ];
 
